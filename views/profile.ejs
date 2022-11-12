@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <title>21 Savage Fan Site</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1 class="run"> RUN TRACKER</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+      <!-- 
+            run tacker that will deeterminate how many miles you run a day.
+            entering the time and the number of miles that you run. than save it.
+            show the page, add all the miles run.
+            copy the first full stack and just delete 
+            heart to specify their favorite run.
+            ask them for the day they run, the miles, temp, how do you feel, heart rate.
+
+LOCAL INFORMATION -->
+       
+        
+          <h2 class="run">Put Your Numbers</h2>
+        <% if (user.local.email) { %>
+          <form action="/personal" method="POST">
+            <input class="number1" placeholder="How many miles?" name="pageNum" type="number" />
+            <input type="number" placeholder="How many hours?" name="msg">
+            <button class="btns" type="submit">Submit</button>
+          </form>
+        </div>
+        <% } %>
+
+        <div>
+          <h3 class="run">TRACKER </h3>
+          <ul class="personal">
+          <%
+            let hours = 0 
+            let miles = 0
+
+           for(var i=0; i<personal.length; i++) { 
+            hours +=parseInt(personal[i].msg)
+            miles +=parseInt(personal[i].pageNum)
+            %>
+            <li class="personals">
+              <span class="run"><%= personal[i].msg %>Your Miles</span>
+              <span class="run" ><%= personal[i].pageNum %>Your hours</span>
+              <span><i class="fa fa-book" aria-hidden="true">delete</i></span>
+              <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+              <span class="updatePage" ><i class="fa fa-trash"></i></span>
+              <span>
+                <div class="updatePageDiv hidden" >
+                <input class="pageNumberInput"  type="number"></input> </span>
+                <input class="pageNumberInput"  type="number"></input> </span>
+              <span class="updatePage"><i class="fa fa-check"></i></span>
+            </div>
+            </li>
+          <% } %>
+          </ul >
+          <div class="run">
+          Totat Miles  : <%= miles %>
+          Totat hours  : <%= hours %>
+          Totat Miles/hours  : <%= miles/hours %>
+        </div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
